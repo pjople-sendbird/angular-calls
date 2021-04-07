@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    
+    <h3>
+        Sendbird Calls
+    </h3>
+
+    <div class="card">
+        <div class="card-header">
+            Make a call
+        </div>
+        <div class="card-body text-center">
+            
+            <!--
+                Connect button
+            -->
+            <button class="btn btn-primary" (click)="connectToSB()" *ngIf="!connected">
+                Connect
+            </button>
+            
+            <!--
+                Card for receiving and making a call
+            -->
+            <div class="row" *ngIf="connected">
+                <div class="col">
+                    <!--
+                        User to call to
+                    -->
+                    <input type="text" class="form-control" placeholder="Call to user_id..." [(ngModel)]="callToUserId" />   
+                </div>
+                <div class="col-auto">
+                    <!--
+                        Button to make a call
+                    -->
+                    <button class="btn btn-primary" (click)="makeCall()">
+                        Call
+                    </button>        
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <!--
+                        YOUR VIDEO
+                    -->
+                    <video #local_video_element_id autoplay class="border" muted></video>
+                </div>
+                <div class="col">
+                    <!--
+                        REMOTE VIDEO
+                    -->
+                    <video #remote_video_element_id autoplay class="border"></video>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center">
+        </div>
+    </div>
+</div>
